@@ -1,0 +1,12 @@
+Creating Jar with Intellij IDEA 2017.3 – no main manifest attribute, in .jar 1
+
+Recently we tried to create a Jar file from IntelliJ IDEA 2017.3 using Maven.
+
+After building the artifact, we got the error no main manifest attribute, in $FILE.jar while executing the jar file created by IntelliJ.
+After extracting the jar we observed that there was a manifest file but not the one that was specified while creating the artifact.
+
+After some serious google-fu, we got to the following bug ticket.
+Apparently, IntelliJ does not read the manifest file that is located in the src/main/java folder!
+Working Solution: As suggested in the ticket, we moved the META-INF folder to src/main/resources and rebuild the artifact.
+
+https://bytefreaks.net/programming-2/java/creating-jar-with-intellij-idea-2017-3-no-main-manifest-attribute-in-jar
